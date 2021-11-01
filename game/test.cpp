@@ -343,4 +343,120 @@ TEST(Straight4, TestMixedSuits3)
 }
 
 
+// FLUSH
+TEST(Flush1, TestSpades)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, SPADES));
+	h1.push(Card(5, SPADES));
+	h1.push(Card(2, SPADES));
+	h1.push(Card(3, SPADES));
+	h1.push(Card(4, SPADES));
+
+	Deck d;
+	EXPECT_TRUE(d.isFlush(h1));
+}
+
+TEST(Flush1, TestDiamonds)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, DIAMONDS));
+	h1.push(Card(5, DIAMONDS));
+	h1.push(Card(2, DIAMONDS));
+	h1.push(Card(3, DIAMONDS));
+	h1.push(Card(4, DIAMONDS));
+
+	Deck d;
+	EXPECT_TRUE(d.isFlush(h1));
+}
+
+TEST(Flush1, TestHearts)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, HEARTS));
+	h1.push(Card(5, HEARTS));
+	h1.push(Card(2, HEARTS));
+	h1.push(Card(3, HEARTS));
+	h1.push(Card(4, HEARTS));
+
+	Deck d;
+	EXPECT_TRUE(d.isFlush(h1));
+}
+
+
+TEST(Flush1, TestClubs)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, CLUBS));
+	h1.push(Card(5, CLUBS));
+	h1.push(Card(2, CLUBS));
+	h1.push(Card(3, CLUBS));
+	h1.push(Card(4, CLUBS));
+
+	Deck d;
+	EXPECT_TRUE(d.isFlush(h1));
+}
+
+TEST(Flush1, TestMixedSuits1)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, CLUBS));
+	h1.push(Card(5, SPADES));
+	h1.push(Card(2, DIAMONDS));
+	h1.push(Card(3, HEARTS));
+	h1.push(Card(4, CLUBS));
+
+	Deck d;
+	EXPECT_FALSE(d.isFlush(h1));
+}
+
+
+
+TEST(Flush1, TestMixedSuits2)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, DIAMONDS));
+	h1.push(Card(5, HEARTS));
+	h1.push(Card(2, CLUBS));
+	h1.push(Card(3, SPADES));
+	h1.push(Card(4, CLUBS));
+
+	Deck d;
+	EXPECT_FALSE(d.isFlush(h1));
+}
+
+TEST(Flush1, TestMixedSuits3)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, SPADES));
+	h1.push(Card(5, HEARTS));
+	h1.push(Card(2, CLUBS));
+	h1.push(Card(3, SPADES));
+	h1.push(Card(4, CLUBS));
+
+	Deck d;
+	EXPECT_FALSE(d.isFlush(h1));
+}
+
+TEST(Flush1, TestMixedSuits4)
+{
+	Hand h1(5);
+
+	h1.push(Card(A, HEARTS));
+	h1.push(Card(5, HEARTS));
+	h1.push(Card(2, HEARTS));
+	h1.push(Card(3, SPADES));
+	h1.push(Card(4, CLUBS));
+
+	Deck d;
+	EXPECT_FALSE(d.isFlush(h1));
+}
+
 
