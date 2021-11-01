@@ -5,7 +5,7 @@
 #include <assert.h>
 
 
-enum RANK { A = 1, TWO=2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, J, Q, K, RMAX };
+enum RANK { A = 1, TWO=2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, J, Q, K, RMAX }; // RMAX is 
 enum SUIT { HEARTS = 0, DIAMONDS, CLUBS, SPADES, SMAX };
 const short DECK_SIZE = 52;
 
@@ -125,7 +125,7 @@ public:
 			short last_card = v.back();
 			v.pop_back();
 
-			cards[i].rank = (last_card % RANK::RMAX) + 1; // ranks in enum is started from one
+			cards[i].rank = (last_card % (RANK::RMAX - 1)) + 1; // ranks in enum is started from one
 			cards[i].suit = last_card / RANK::RMAX;  // suits in enum starts from zero , so we can use quotient as index
 		}
 
@@ -230,8 +230,9 @@ public:
 
 	std::string rank_str(short rank)
 	{
-		std::string ranks[RANK::RMAX] = { "A", "2", "3",
-		"4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+		std::string ranks[RANK::RMAX + 1] = { "A", "2", "3",
+		"4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };  // RMAX + 1  is because we use RMAX as Ace as 14
 		return ranks[rank];
 	}
 };
+
